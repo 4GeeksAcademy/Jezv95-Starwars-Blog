@@ -26,7 +26,12 @@ export const Navbar = () => {
     Favorites <span className="badge text-bg-secondary"> {store.favItems.length} </span>
   </button>
   <ul className="dropdown-menu">
-    {store.favItems.map((favorite,index)=><li key={index} className="dropdown-item">{favorite}</li>)}
+    {store.favItems.map((favorite,index)=><li key={index} className="dropdown-item">
+      {favorite} <span > <button type="button" onClick={()=> dispatch({
+        type:'toggle_favitem',
+				payload: favorite
+      })} class="btn"> X </button> </span>
+      </li>)}
   
   </ul>
 </div>

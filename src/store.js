@@ -106,7 +106,14 @@ export default function storeReducer(store, action = {}) {
         favItems: updatedFavs
        };
 
-     
+       case 'delete_favitem':
+
+      let dropdowndelete =[]
+
+       if(store.favItems.includes(action.payload)){
+        dropdowndelete = store.favItems.filter((favorite)=> favorite != action.payload)
+       }
+
 
        case 'load_Planets':
         const { planetList} = action.payload
